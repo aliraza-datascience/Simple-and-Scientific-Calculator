@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple &amp; Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="calculator scientific" id="calculator">
+      <!-- Display -->
+      <div class="display-card">
+        <button class="history-btn" id="history-btn" aria-label="History" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+          </svg>
+        </button>
+        <div class="expression" id="expression"></div>
+        <div class="result" id="result" aria-live="polite">0</div>
+
+        <div class="history-panel" id="history-panel" hidden>
+          <ul id="history-list"></ul>
+          <button class="history-clear" id="history-clear">Clear history</button>
+        </div>
+      </div>
+
+      <!-- Keys -->
+      <div class="pad">
+        <!-- Row 1 -->
+        <div class="angle sci" role="group" aria-label="Angle unit">
+          <button class="seg active" data-action="deg" id="deg-btn">Deg</button>
+          <button class="seg" data-action="rad" id="rad-btn">Rad</button>
+        </div>
+        <button class="key fn sci" data-type="post" data-value="!">x!</button>
+        <button class="key fn" data-type="open" data-value="(">(</button>
+        <button class="key fn" data-type="close" data-value=")">)</button>
+        <button class="key fn" data-type="post" data-value="%">%</button>
+        <button class="key fn" id="ac-btn" data-action="clear">AC</button>
+
+        <!-- Row 2 -->
+        <button class="key fn sci" id="inv-btn" data-action="inv">Inv</button>
+        <button class="key fn sci" data-type="func" data-value="sin(" data-inv-type="func" data-inv-value="asin(" data-inv-label="sin<sup>−1</sup>">sin</button>
+        <button class="key fn sci" data-type="func" data-value="ln(" data-inv-type="func" data-inv-value="e^(" data-inv-label="e<sup>x</sup>">ln</button>
+        <button class="key num" data-type="digit" data-value="7">7</button>
+        <button class="key num" data-type="digit" data-value="8">8</button>
+        <button class="key num" data-type="digit" data-value="9">9</button>
+        <button class="key op" data-type="op" data-value="÷">÷</button>
+
+        <!-- Row 3 -->
+        <button class="key fn sci" data-type="const" data-value="π">π</button>
+        <button class="key fn sci" data-type="func" data-value="cos(" data-inv-type="func" data-inv-value="acos(" data-inv-label="cos<sup>−1</sup>">cos</button>
+        <button class="key fn sci" data-type="func" data-value="log(" data-inv-type="func" data-inv-value="10^(" data-inv-label="10<sup>x</sup>">log</button>
+        <button class="key num" data-type="digit" data-value="4">4</button>
+        <button class="key num" data-type="digit" data-value="5">5</button>
+        <button class="key num" data-type="digit" data-value="6">6</button>
+        <button class="key op" data-type="op" data-value="×">×</button>
+
+        <!-- Row 4 -->
+        <button class="key fn sci" data-type="const" data-value="e">e</button>
+        <button class="key fn sci" data-type="func" data-value="tan(" data-inv-type="func" data-inv-value="atan(" data-inv-label="tan<sup>−1</sup>">tan</button>
+        <button class="key fn sci" data-type="func" data-value="√(" data-inv-type="suffix" data-inv-value="^2" data-inv-label="x<sup>2</sup>">√</button>
+        <button class="key num" data-type="digit" data-value="1">1</button>
+        <button class="key num" data-type="digit" data-value="2">2</button>
+        <button class="key num" data-type="digit" data-value="3">3</button>
+        <button class="key op" data-type="op" data-value="−">−</button>
+
+        <!-- Row 5 -->
+        <button class="key fn sci" data-action="ans">Ans</button>
+        <button class="key fn sci" data-action="exp">EXP</button>
+        <button class="key fn sci" data-type="op" data-value="^">x<sup>y</sup></button>
+        <button class="key num" data-type="digit" data-value="0">0</button>
+        <button class="key num" data-type="digit" data-value=".">.</button>
+        <button class="key equals" data-action="equals">=</button>
+        <button class="key op" data-type="op" data-value="+">+</button>
+      </div>
+    </div>
+
+    <button class="mode-link" id="mode-toggle">Simple calculator</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
